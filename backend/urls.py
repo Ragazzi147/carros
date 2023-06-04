@@ -21,11 +21,11 @@ from rest_framework import routers
 from django.conf.urls.static import static
 from django.conf import settings
 
-from app.api import viewsets as appviewsets
+from app.api import viewsets as appviews
 
 route = routers.DefaultRouter()
 
-route.register(r'app/', appviewsets.AppViewSets, basename="App" )
+route.register(r'app/', appviews.AppViewSets, basename="app")
 
 urlpatterns = [
     path('admin/', admin.site.urls),

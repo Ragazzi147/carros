@@ -15,12 +15,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='app',
             fields=[
-                ('id_car', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
+                ('id_car', models.UUIDField(default=uuid.uuid4,
+                 editable=False, primary_key=True, serialize=False)),
                 ('modelo', models.CharField(max_length=150)),
                 ('marca', models.CharField(max_length=100)),
                 ('ano', models.IntegerField()),
                 ('km', models.CharField(max_length=100)),
-                ('Cambio', models.CharField(max_length=100)),
+                ('cambio', models.CharField(max_length=100)),
             ],
         ),
     ]
