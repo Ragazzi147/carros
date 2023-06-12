@@ -1,7 +1,19 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from uuid import uuid4
 
 # Create your models he((re.
+
+
+class CustomUser(AbstractUser):
+    # Adicione campos personalizados aqui
+    # Exemplo: idade = models.IntegerField(blank=True, null=True)
+    idade = models.IntegerField(blank=True, null=True)
+
+    # Adicione mais campos personalizados conforme necessário
+
+    def __str__(self):
+        return self.username
 
 
 def upload_image_car(instance, filename):
@@ -15,5 +27,4 @@ class app(models.Model):
     ano = models.IntegerField()
     km = models.CharField(max_length=100)
     cambio = models.CharField(max_length=100)
-    image = models.ImageField(
-        upload_to=upload_image_car, blank=True, null=True)
+    image = models.ImageField(upload_to=upload_image_car, blank=True, null=True)

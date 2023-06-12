@@ -22,12 +22,16 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from app.api import viewsets as appviews
+from app.views import register_user, login_user, logout_user
 
 route = routers.DefaultRouter()
 
-route.register(r'app/', appviews.AppViewSets, basename="app")
+route.register(r"app/", appviews.AppViewSets, basename="app")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(route.urls))
+    path("admin/", admin.site.urls),
+    path("api/register/", register_user, name="register"),
+    path("api/login/", login_user, name="login"),
+    path("api/logout/", logout_user, name="logout"),
+    path("", include(route.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
